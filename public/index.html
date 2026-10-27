@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Table is Ready</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="logo">🍽️</span>
+      <div>
+        <h1>Table is Ready</h1>
+        <div class="sub" id="restaurantName">&nbsp;</div>
+      </div>
+    </div>
+    <nav>
+      <button class="tab active" data-view="host">Waitlist</button>
+      <button class="tab" data-view="settings">Settings</button>
+    </nav>
+  </header>
+
+  <div id="demoBanner" class="banner hidden">
+    <strong>DEMO mode</strong> — no Twilio credentials set. Texts are logged and shown here instead of being sent.
+  </div>
+
+  <main>
+    <section id="view-host" class="view">
+      <form id="addForm" class="card add" autocomplete="off">
+        <h2>Add to waitlist</h2>
+        <div class="fields">
+          <label class="f-phone">Phone number *
+            <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="(555) 123-4567" required />
+          </label>
+          <label class="f-name">Guest name
+            <input id="name" name="name" type="text" placeholder="Optional" maxlength="60" />
+          </label>
+          <label class="f-size">Party size
+            <input id="size" name="party_size" type="number" min="1" max="100" inputmode="numeric" placeholder="2" />
+          </label>
+          <button type="submit" class="btn primary big">Add party</button>
+        </div>
+        <div id="formError" class="error"></div>
+      </form>
+
+      <div class="list-head">
+        <h2>Waiting <span id="count" class="pill">0</span></h2>
+      </div>
+      <ul id="parties" class="parties"></ul>
+      <p id="empty" class="empty">No one is waiting. Add a party above.</p>
+    </section>
+
+    <section id="view-settings" class="view hidden">
+      <form id="settingsForm" class="card">
+        <h2>Settings</h2>
+        <label>Restaurant name
+          <input id="s_restaurant" type="text" maxlength="100" required />
+        </label>
+        <label>"Table ready" message
+          <textarea id="s_ready" rows="3" maxlength="480" required></textarea>
+        </label>
+        <label class="check">
+          <input id="s_join_enabled" type="checkbox" /> Text guests when they join the waitlist
+        </label>
+        <label>"Joined waitlist" message
+          <textarea id="s_join" rows="3" maxlength="480" required></textarea>
+        </label>
+        <p class="hint">Placeholders: <code>{name}</code>, <code>{restaurant}</code>, <code>{size}</code>. If no name is given, <code>{name}</code> becomes "there".</p>
+        <div class="preview"><span>Preview:</span> <em id="preview"></em></div>
+        <button class="btn primary" type="submit">Save settings</button>
+        <span id="settingsSaved" class="saved"></span>
+      </form>
+      <div class="card">
+        <h2>Recent texts</h2>
+        <ul id="messages" class="messages"></ul>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast hidden"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
