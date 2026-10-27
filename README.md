@@ -1,5 +1,11 @@
 # Table is Ready
 
+## About
+
+Table is Ready makes waiting for a table easy. Instead of handing out buzzers or calling names across a crowded room, your host just types in a guest's phone number. When their table opens up, one tap sends them a friendly text so they know to come back. Guests can grab a drink, stroll the block, or relax in their car without worrying about missing their turn, and your staff keep the waitlist moving without the shouting. It works for restaurants, cafés, salons, clinics, or anywhere people wait in line, and it's simple enough to start using the same day.
+
+![Table is Ready waitlist screen](screenshot.png)
+
 A simple waitlist for restaurants (or any place with a line). The host enters a guest's
 phone number when they join the waitlist; when their table is ready, the host taps
 **Table ready** and the guest gets a text.
